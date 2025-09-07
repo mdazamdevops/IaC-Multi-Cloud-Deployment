@@ -6,43 +6,6 @@ This project is a testament to the high-quality, hands-on learning experience pr
 Objective: Provision resources in both AWS and GCP simultaneously and validate auto-deployment with a single command using Terraform infrastructure as code.
 
 Tools: Terraform, AWS Free Tier, GCP Free Tier, NGINX, DNSMasq (local)
-## Architecture
-Multi-Cloud Infrastructure Diagram
-Diagram
-
-graph TB
-    subgraph AWS Cloud (ap-south-1)
-        A1[VPC: 10.0.0.0/16]
-        A2[Internet Gateway]
-        A3[Public Subnet: 10.0.1.0/24]
-        A4[EC2 Instance: t2.micro]
-        A5[Security Group: HTTP/HTTPS/SSH]
-        A6[Elastic IP]
-        
-        A1 --> A2
-        A1 --> A3
-        A3 --> A4
-        A4 --> A5
-        A4 --> A6
-    end
-
-    subgraph GCP Cloud (us-central1)
-        G1[Default Network]
-        G2[Compute Instance: f1-micro]
-        G3[External IP]
-        G4[Firewall Rules]
-        
-        G1 --> G2
-        G2 --> G3
-        G1 --> G4
-    end
-
-    User[End User] --> Internet
-    Internet --> A6
-    Internet --> G3
-    
-    A4 --> App[QR Scanner Application]
-    G2 --> App
 
 ## Project Structure
 ```
